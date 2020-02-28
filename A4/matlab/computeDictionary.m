@@ -1,0 +1,11 @@
+clear all;
+load('../data/traintest.mat');
+alpha = 50;
+k = 100;
+filterBank = createFilterBank();
+fprintf('computing dictionary: random \n');
+[dictionaryRandom] = getDictionary(train_imagenames, alpha, k, 'random');
+fprintf('computing dictionary: harris \n');
+[dictionaryHarris] = getDictionary(train_imagenames, alpha, k, 'harris');
+save('dictionaryRandom.mat', 'dictionaryRandom');
+save('dictionaryHarris.mat', 'dictionaryHarris');
